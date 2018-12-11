@@ -49,6 +49,7 @@
     "node": ">= 6.x.x"
   },
   "dependencies": {
-    "mongodb": "3.1.8"
+    "mongodb": "3.1.8",
+    "nano": "^7.1.1"
   }
 }
