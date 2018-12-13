@@ -247,12 +247,14 @@ describe("Test CouchDbNanoAdapter", () => {
         let entities = [
             {_id: '2', a: 2, b: 20},
             {_id: '3', a: 3, b: 20},
-            {_id: '4', a: 4, b: 20}
+            {_id: '4', a: 4, b: 20},
+            {_id: '5', a: 5, b: 30},
+            {_id: '6', a: 6, b: 30}
         ];
         return adapter.insertMany(entities)
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
-                expect(res).toHaveLength(3);
+                expect(res).toHaveLength(5);
             })
             .catch(protectReject);
     });
@@ -294,6 +296,13 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call clear", () => {
+        return adapter.clear()
+            .then(res => {
+                expect(res).toBeGreaterThanOrEqual(2);
+            })
+            .catch(protectReject);
+    });
 
 
 
@@ -301,20 +310,8 @@ describe("Test CouchDbNanoAdapter", () => {
 
 
 
-    //
-    //
-    //
-    // it("call updateById", () => {
-    //     doc.toJSON.mockClear();
-    //
-    //     let update = {};
-    //     return adapter.updateById(5, update).catch(protectReject).then(res => {
-    //         expect(res).toEqual(doc);
-    //         expect(adapter.collection.findOneAndUpdate).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.findOneAndUpdate).toHaveBeenCalledWith({_id: 5}, update, {returnOriginal: false});
-    //     });
-    // });
-    //
+
+
 
 
     //

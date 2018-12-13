@@ -274,7 +274,7 @@ class CouchDbNanoAdapter {
      * @memberof CouchDbNano
      */
     clear() {
-        return this.removeMany({}).then(res => res.deletedCount);
+        return this.removeMany({});
     }
 
     // /**
