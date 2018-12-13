@@ -239,9 +239,9 @@ describe("Test CouchDbNanoAdapter", () => {
 
     it("call insertMany", () => {
         let entities = [
-            {a: 2, b: 20},
-            {a: 3, b: 20},
-            {a: 4, b: 20}
+            {_id: '2', a: 2, b: 20},
+            {_id: '3', a: 3, b: 20},
+            {_id: '4', a: 4, b: 20}
         ];
         return adapter.insertMany(entities)
             .then(res => {
@@ -261,6 +261,15 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call findByIds", () => {
+        return adapter.findByIds(['2', '3', '4'])
+            .then(res => {
+                expect(res).toBeInstanceOf(Array);
+                expect(res).toHaveLength(3);
+            })
+            .catch(protectReject);
+    });
+
     it("call removeMany", () => {
         let query = {b: 20};
         return adapter.removeMany(query)
@@ -272,14 +281,7 @@ describe("Test CouchDbNanoAdapter", () => {
 
 
 
-    // it("call removeMany", () => {
-    //     let query = {};
-    //
-    //     return adapter.removeMany(query).catch(protectReject).then(() => {
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledWith(query);
-    //     });
-    // });
+
 
 
     //
@@ -318,15 +320,7 @@ describe("Test CouchDbNanoAdapter", () => {
     //     });
     // });
     //
-    // it("call removeMany", () => {
-    //     let query = {};
-    //
-    //     return adapter.removeMany(query).catch(protectReject).then(() => {
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledWith(query);
-    //     });
-    // });
-    //
+
 
     //
     // it("call clear", () => {
