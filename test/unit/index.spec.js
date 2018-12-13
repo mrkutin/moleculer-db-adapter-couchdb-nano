@@ -212,6 +212,25 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call find", () => {
+        return  adapter.find({query: {a: 'a'}})
+            .then(res => {
+                expect(res).toBeInstanceOf(Array);
+                expect(res[0]).toMatchObject({a: 'a'});
+            })
+            .catch(protectReject);
+    });
+
+    it("call findOne", () => {
+        return  adapter.find({query: {a: 'a'}})
+            .then(res => {
+                expect(res).toBeInstanceOf(Array);
+                expect(res).toHaveLength(1);
+                expect(res[0]).toMatchObject({a: 'a'});
+            })
+            .catch(protectReject);
+    });
+
     it("call removeById", () => {
         return  adapter.removeById('1')
             .then(res => expect(res._id).toBe('1'))
@@ -221,22 +240,11 @@ describe("Test CouchDbNanoAdapter", () => {
 
 
 
-    // it("call find", () => {
-    //     adapter.init(broker, service);
-    //     return adapter.connect()
-    //         .then((res) => adapter.find({}))
-    //         .then(res => expect(res).toBeInstanceOf(Array))
-    //         .catch(protectReject);
-    // });
-    //
-    // it("call findOne", () => {
-    //     adapter.init(broker, service);
-    //     return adapter.connect()
-    //         .then((res) => adapter.findOne({a: 5}))
-    //         .then(res => expect(res._id).toBeDefined())
-    //         .catch(protectReject);
-    // });
-    //
+
+
+
+
+
     //
     // it("call findByIds", () => {
     //     toArrayCB.mockClear();

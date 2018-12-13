@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25d7464d-e41e-4655-ae55-1c873892c052" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/unit/index.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/index.spec.js" afterDir="false" />
     </list>
@@ -17,32 +16,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="253" lean-forward="true" selection-start-line="253" selection-end-line="253" />
+            <state relative-caret-position="-375">
+              <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#constructor#0;n#CouchDbNanoAdapter#0" />
+                <element signature="n#!!block;n#init#0;n#CouchDbNanoAdapter#0" />
+                <element signature="n#!!block;n#connect#0;n#CouchDbNanoAdapter#0" />
+                <element signature="n#!!block;n#disconnect#0;n#CouchDbNanoAdapter#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
+            <state relative-caret-position="413">
+              <caret line="232" selection-start-line="232" selection-end-line="232" />
               <folding>
                 <element signature="e#4451#4491#0" />
               </folding>
@@ -75,11 +69,11 @@
       <find>stringToObjectId</find>
       <find>this.db.insert</find>
       <find>collection</find>
-      <find>insert</find>
-      <find>find</find>
       <find>findById</find>
       <find>adapter</find>
+      <find>find</find>
       <find>removeById</find>
+      <find>insert</find>
     </findStrings>
     <replaceStrings>
       <replace>CouchDbNano</replace>
@@ -94,8 +88,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/test/unit/index.spec.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/test/unit/index.spec.js" />
       </list>
     </option>
   </component>
@@ -288,39 +282,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 11m 44s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 27m 16s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 12m 24s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 28m 20s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 14m 13s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 29m 11s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 14m 46s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 29m 39s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 15m 31s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 30m 24s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 16m 01s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 34m 30s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 16m 28s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 35m 10s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 16m 41s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 36m 02s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 18m 44s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 37m 18s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 12h 19m 29s.xml">
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 14h 38m 02s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19999000" />
+    <option name="totallyTimeSpent" value="23143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -339,7 +333,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891566" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32866243" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -359,23 +353,6 @@
         <option value="1" />
       </list>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/index.js</url>
-          <line>220</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/unit/index.spec.js</url>
-          <line>216</line>
-          <properties lambdaOrdinal="0" />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/jest-runtime/build/index.js">
@@ -416,22 +393,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="253" lean-forward="true" selection-start-line="253" selection-end-line="253" />
+        <state relative-caret-position="413">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#4451#4491#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
+        <state relative-caret-position="-375">
+          <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
           <folding>
-            <element signature="e#4451#4491#0" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#CouchDbNanoAdapter#0" />
+            <element signature="n#!!block;n#init#0;n#CouchDbNanoAdapter#0" />
+            <element signature="n#!!block;n#connect#0;n#CouchDbNanoAdapter#0" />
+            <element signature="n#!!block;n#disconnect#0;n#CouchDbNanoAdapter#0" />
           </folding>
         </state>
       </provider>

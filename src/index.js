@@ -79,18 +79,6 @@ class CouchDbNanoAdapter {
     }
 
     /**
-     * Find an entity by ID.
-     *
-     * @param {String} _id
-     * @returns {Promise<Object>} Return with the found document.
-     *
-     * @memberof CouchDbNano
-     */
-    findById(_id) {
-        return Promise.resolve(this.db.get(_id));
-    }
-
-    /**
      * Insert an entity.
      *
      * @param {Object} entity
@@ -104,16 +92,46 @@ class CouchDbNanoAdapter {
         );
     }
 
+    /**
+     * Find an entity by ID.
+     *
+     * @param {String} _id
+     * @returns {Promise<Object>} Return with the found document.
+     *
+     * @memberof CouchDbNano
+     */
+    findById(_id) {
+        return Promise.resolve(this.db.get(_id));
+    }
+
+    /**
+     * Remove an entity by ID
+     *
+     * @param {String} _id - ObjectID as hexadecimal string.
+     * @returns {Promise<Object>} Return with the removed document.
+     *
+     * @memberof CouchDbNano
+     */
+    removeById(_id) {
+        return Promise.resolve(
+            this.findById(_id)
+                .then(doc => {
+                    this.db.destroy(doc._id, doc._rev);
+                    return doc;
+                })
+        );
+    }
 
     /**
      * Find all entities by filters.
      *
      * Available filter props:
-     * - selector (json) – JSON object describing criteria used to select documents. More information provided in the section on selector syntax. Required
-     * - limit (number) – Maximum number of results returned.
-     * - skip (number) – Skip the first ‘n’ results, where ‘n’ is the value specified. Optional
-     * - sort (json) – JSON array following sort syntax. Optional
-     * - fields (array) – JSON array specifying which fields of each object should be returned. If it is omitted, the entire object is returned. More information provided in the section on filtering fields. Optional
+     *    - limit
+     *  - offset
+     *  - sort
+     *  - search
+     *  - searchFields
+     *  - query
      *
      * @param {Object} filters
      * @returns {Promise<Array>}
@@ -121,34 +139,25 @@ class CouchDbNanoAdapter {
      * @memberof CouchDbNano
      */
     find(filters) {
-        const {selector = filters, limit, skip, sort, fields} = filters;
+        const {query: selector, limit, offset: skip, sort} = filters;
         Object.entries(selector).forEach(([key, value]) => {
             if (typeof value !== 'object') {
                 selector[key] = {$eq: value};
             }
         });
-        return Promise.resolve(this.db.find({selector, limit, skip, sort, fields}).then(result => result.docs));
+        return Promise.resolve(this.db.find({selector, limit, skip, sort}).then(result => result.docs));
     }
 
     /**
      * Find an entity by query
-     *
-     * Available filter props:
-     * - selector (json) – JSON object describing criteria used to select documents. More information provided in the section on selector syntax. Required
-     * - limit (number) – Maximum number of results returned. Default is 25. Optional
-     * - skip (number) – Skip the first ‘n’ results, where ‘n’ is the value specified. Optional
-     * - sort (json) – JSON array following sort syntax. Optional
-     * - fields (array) – JSON array specifying which fields of each object should be returned. If it is omitted, the entire object is returned. More information provided in the section on filtering fields. Optional
      *
      * @param {Object} query
      * @returns {Promise}
      * @memberof MemoryDbAdapter
      */
     findOne(query) {
-        const filters = Object.assign({}, {selector: query, limit: 1});
-        return this.find(filters).then(docs => docs.length ? docs[0] : null);
+        return this.find({selector: query, limit: 1}).then(docs => docs.length ? docs[0] : null);
     }
-
 
     /**
      * Find any entities by IDs.
@@ -234,23 +243,6 @@ class CouchDbNanoAdapter {
         return this.collection.deleteMany(query).then(res => res.deletedCount);
     }
 
-    /**
-     * Remove an entity by ID
-     *
-     * @param {String} _id - ObjectID as hexadecimal string.
-     * @returns {Promise<Object>} Return with the removed document.
-     *
-     * @memberof CouchDbNano
-     */
-    removeById(_id) {
-        return Promise.resolve(
-            this.findById(_id)
-                .then(doc => {
-                    this.db.destroy(doc._id, doc._rev);
-                    return doc;
-                })
-        );
-    }
 
     /**
      * Clear all entities from collection
