@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25d7464d-e41e-4655-ae55-1c873892c052" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/unit/index.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/index.spec.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="238" column="16" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="16" />
+            <state relative-caret-position="312">
+              <caret line="254" column="49" selection-start-line="254" selection-start-column="49" selection-end-line="254" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#!!block;n#constructor#0;n#CouchDbNanoAdapter#0" />
@@ -34,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="266" column="26" lean-forward="true" selection-start-line="266" selection-start-column="26" selection-end-line="266" selection-end-column="26" />
+            <state relative-caret-position="194">
+              <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
               <folding>
                 <element signature="e#4451#4491#0" />
               </folding>
@@ -76,6 +77,7 @@
       <find>find</find>
       <find>findByIds</find>
       <find>count</find>
+      <find>updateById</find>
     </findStrings>
     <replaceStrings>
       <replace>CouchDbNano</replace>
@@ -90,8 +92,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/test/unit/index.spec.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
   </component>
@@ -284,12 +286,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 32m 05s.xml">
-      <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 32m 38s.xml">
-      <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 32m 57s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -314,9 +310,15 @@
     <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 54m 30s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 58m 54s.xml">
+      <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="Test_CouchDbNanoAdapter - 2018.12.13 at 16h 59m 07s.xml">
+      <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29361000" />
+    <option name="totallyTimeSpent" value="29633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -361,9 +363,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/unit/index.spec.js</url>
-          <line>267</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="60" />
+          <line>235</line>
+          <properties lambdaOrdinal="0" />
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -415,8 +417,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="238" column="16" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="16" />
+        <state relative-caret-position="312">
+          <caret line="254" column="49" selection-start-line="254" selection-start-column="49" selection-end-line="254" selection-end-column="49" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#constructor#0;n#CouchDbNanoAdapter#0" />
@@ -429,8 +431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="266" column="26" lean-forward="true" selection-start-line="266" selection-start-column="26" selection-end-line="266" selection-end-column="26" />
+        <state relative-caret-position="194">
+          <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
           <folding>
             <element signature="e#4451#4491#0" />
           </folding>

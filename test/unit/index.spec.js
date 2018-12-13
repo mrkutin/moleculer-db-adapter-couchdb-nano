@@ -231,6 +231,12 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call updateById", () => {
+        return adapter.updateById('1', {b: 2})
+            .then(res => expect(res.b).toBe(2))
+            .catch(protectReject);
+    });
+
     it("call removeById", () => {
         return adapter.removeById('1')
             .then(res => expect(res._id).toBe('1'))
@@ -294,16 +300,7 @@ describe("Test CouchDbNanoAdapter", () => {
 
 
 
-    //
-    // it("call count", () => {
-    //     adapter.createCursor = jest.fn(() => Promise.resolve(8));
-    //
-    //     let params = {};
-    //     return adapter.count(params).catch(protectReject).then(() => {
-    //         expect(adapter.createCursor).toHaveBeenCalledTimes(1);
-    //         expect(adapter.createCursor).toHaveBeenCalledWith(params, true);
-    //     });
-    // });
+
     //
     //
     //

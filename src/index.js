@@ -221,20 +221,6 @@ class CouchDbNanoAdapter {
             .then(result => result.length);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Get count of filtered entites.
      *
@@ -253,10 +239,6 @@ class CouchDbNanoAdapter {
         return this.find(filters).then(docs => docs.length);
     }
 
-
-
-
-
     /**
      * Update an entity by ID and `update`
      *
@@ -270,8 +252,16 @@ class CouchDbNanoAdapter {
         return this.findById(_id)
             .then(doc => Object.assign({}, doc, update))
             .then(mergedDoc => this.db.insert(mergedDoc))
-            .then(result => result);
+            .then(result => this.findById(result.id));
     }
+
+
+
+
+
+
+
+
 
 
 
