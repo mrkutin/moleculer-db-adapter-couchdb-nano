@@ -201,48 +201,85 @@ describe("Test CouchDbNanoAdapter", () => {
     // });
 
     it("call insert", () => {
-        return  adapter.insert({_id: '1', a: 'a', b: 'b'})
+        return adapter.insert({_id: '1', a: 1, b: 2})
             .then(res => expect(res._id).toBe('1'))
             .catch(protectReject);
     });
 
     it("call findById", () => {
-        return  adapter.findById('1')
+        return adapter.findById('1')
             .then(res => expect(res._id).toBe('1'))
             .catch(protectReject);
     });
 
     it("call find", () => {
-        return  adapter.find({query: {a: 'a'}})
+        return adapter.find({query: {a: 1}})
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
-                expect(res[0]).toMatchObject({a: 'a'});
+                expect(res[0].a).toBe(1);
             })
             .catch(protectReject);
     });
 
     it("call findOne", () => {
-        return  adapter.find({query: {a: 'a'}})
+        return adapter.find({query: {a: 1}})
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
                 expect(res).toHaveLength(1);
-                expect(res[0]).toMatchObject({a: 'a'});
+                expect(res[0]).toMatchObject({a: 1});
             })
             .catch(protectReject);
     });
 
     it("call removeById", () => {
-        return  adapter.removeById('1')
+        return adapter.removeById('1')
             .then(res => expect(res._id).toBe('1'))
+            .catch(protectReject);
+    });
+
+    it("call insertMany", () => {
+        let entities = [
+            {a: 2, b: 20},
+            {a: 3, b: 20},
+            {a: 4, b: 20}
+        ];
+        return adapter.insertMany(entities)
+            .then(res => {
+                expect(res).toBeInstanceOf(Array);
+                expect(res).toHaveLength(3);
+            })
+            .catch(protectReject);
+    });
+
+    it("call updateMany", () => {
+        let query = {b: 20};
+        let update = {c: 100};
+        return adapter.updateMany(query, update)
+            .then(res => {
+                expect(res).toBeGreaterThanOrEqual(3);
+            })
+            .catch(protectReject);
+    });
+
+    it("call removeMany", () => {
+        let query = {b: 20};
+        return adapter.removeMany(query)
+            .then(res => {
+                expect(res).toBeGreaterThanOrEqual(3);
+            })
             .catch(protectReject);
     });
 
 
 
-
-
-
-
+    // it("call removeMany", () => {
+    //     let query = {};
+    //
+    //     return adapter.removeMany(query).catch(protectReject).then(() => {
+    //         expect(adapter.collection.deleteMany).toHaveBeenCalledTimes(1);
+    //         expect(adapter.collection.deleteMany).toHaveBeenCalledWith(query);
+    //     });
+    // });
 
 
     //
@@ -269,28 +306,6 @@ describe("Test CouchDbNanoAdapter", () => {
     // });
     //
     //
-    // it("call insertMany", () => {
-    //     let entities = [
-    //         {a: 5},
-    //         {a: 10}
-    //     ];
-    //     return adapter.insertMany(entities).catch(protectReject).then(res => {
-    //         expect(res).toEqual(entities);
-    //         expect(adapter.collection.insertMany).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.insertMany).toHaveBeenCalledWith(entities);
-    //     });
-    // });
-    //
-    // it("call updateMany", () => {
-    //     let query = {};
-    //     let update = {};
-    //
-    //     return adapter.updateMany(query, update).catch(protectReject).then(res => {
-    //         expect(res).toEqual(2);
-    //         expect(adapter.collection.updateMany).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.updateMany).toHaveBeenCalledWith(query, update);
-    //     });
-    // });
     //
     // it("call updateById", () => {
     //     doc.toJSON.mockClear();

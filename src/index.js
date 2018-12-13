@@ -168,8 +168,72 @@ class CouchDbNanoAdapter {
      * @memberof CouchDbNano
      */
     findByIds(idList) {
-        return Promise.resolve(this.db.fetch({keys: idList}));
+        return Promise.resolve(
+            this.db.fetch({keys: idList})
+                .then(res => res.rows.map(el => el.doc))
+        );
     }
+
+    /**
+     * Insert many entities
+     *
+     * @param {Array} entities
+     * @returns {Promise<Array<Object>>} Return with the inserted documents in an Array.
+     *
+     * @memberof MongoDbAdapter
+     */
+    insertMany(entities) {
+        return Promise.resolve(
+            this.db.bulk({docs: entities})
+                .then(result => result.map(el => el.id))
+                .then(ids => this.findByIds(ids))
+        );
+    }
+
+    /**
+     * Update many entities by `query` and `update`
+     *
+     * @param {Object} query
+     * @param {Object} update
+     * @returns {Promise<Number>} Count of modified documents.
+     *
+     * @memberof CouchDbNano
+     */
+    updateMany(query, update) {
+        return this.find({query})
+            .then(docs => docs.map(doc => Object.assign({}, doc, update)))
+            .then(docs => this.db.bulk({docs}))
+            .then(result => result.length);
+    }
+
+    /**
+     * Remove entities which are matched by `query`
+     *
+     * @param {Object} query
+     * @returns {Promise<Number>} Return with the count of deleted documents.
+     *
+     * @memberof MongoDbAdapter
+     */
+    removeMany(query) {
+        return this.find({query})
+            .then(docs => docs.map(doc => Object.assign({}, doc, {_deleted: true})))
+            .then(docs => this.db.bulk({docs}))
+            .then(result => result.length);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Get count of filtered entites.
@@ -189,30 +253,9 @@ class CouchDbNanoAdapter {
         return this.find(filters).then(docs => docs.length);
     }
 
-    /**
-     * Insert many entities
-     *
-     * @param {Array} entities
-     * @returns {Promise<Array<Object>>} Return with the inserted documents in an Array.
-     *
-     * @memberof CouchDbNano
-     */
-    insertMany(entities) {
-        return Promise.resolve(this.db.bulk(entities).then(result => result));
-    }
 
-    /**
-     * Update many entities by `query` and `update`
-     *
-     * @param {Object} query
-     * @param {Object} update
-     * @returns {Promise<Number>} Return with the count of modified documents.
-     *
-     * @memberof CouchDbNano
-     */
-    updateMany(query, update) {
-        return Promise.resolve(this.db.bulk(entities).then(result => result));
-    }
+
+
 
     /**
      * Update an entity by ID and `update`
@@ -230,18 +273,7 @@ class CouchDbNanoAdapter {
             .then(result => result);
     }
 
-    /**
-     * Remove entities which are matched by `query`
-     *
-     * @param {Object} query
-     * @returns {Promise<Number>} Return with the count of deleted documents.
-     *
-     * @memberof CouchDbNano
-     */
-    removeMany(query) {
-        //todo docs: docs, _deleted for each doc
-        return this.collection.deleteMany(query).then(res => res.deletedCount);
-    }
+
 
 
     /**
