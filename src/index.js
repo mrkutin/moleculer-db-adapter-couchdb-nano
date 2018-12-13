@@ -79,6 +79,33 @@ class CouchDbNanoAdapter {
     }
 
     /**
+     * Find an entity by ID.
+     *
+     * @param {String} _id
+     * @returns {Promise<Object>} Return with the found document.
+     *
+     * @memberof CouchDbNano
+     */
+    findById(_id) {
+        return Promise.resolve(this.db.get(_id));
+    }
+
+    /**
+     * Insert an entity.
+     *
+     * @param {Object} entity
+     * @returns {Promise<Object>} Return with the inserted document.
+     *
+     * @memberof CouchDbNano
+     */
+    insert(entity) {
+        return Promise.resolve(
+            this.db.insert(entity).then(result => this.findById(result.id))
+        );
+    }
+
+
+    /**
      * Find all entities by filters.
      *
      * Available filter props:
@@ -96,7 +123,7 @@ class CouchDbNanoAdapter {
     find(filters) {
         const {selector = filters, limit, skip, sort, fields} = filters;
         Object.entries(selector).forEach(([key, value]) => {
-            if(typeof value !== 'object'){
+            if (typeof value !== 'object') {
                 selector[key] = {$eq: value};
             }
         });
@@ -122,17 +149,6 @@ class CouchDbNanoAdapter {
         return this.find(filters).then(docs => docs.length ? docs[0] : null);
     }
 
-    /**
-     * Find an entity by ID.
-     *
-     * @param {String} _id
-     * @returns {Promise<Object>} Return with the found document.
-     *
-     * @memberof CouchDbNano
-     */
-    findById(_id) {
-        return Promise.resolve(this.db.get(_id));
-    }
 
     /**
      * Find any entities by IDs.
@@ -162,18 +178,6 @@ class CouchDbNanoAdapter {
      */
     count(filters = {}) {
         return this.find(filters).then(docs => docs.length);
-    }
-
-    /**
-     * Insert an entity.
-     *
-     * @param {Object} entity
-     * @returns {Promise<Object>} Return with the inserted document.
-     *
-     * @memberof CouchDbNano
-     */
-    insert(entity) {
-        return this.db.insert(entity).then(result => this.findById(result.id));
     }
 
     /**
@@ -239,7 +243,13 @@ class CouchDbNanoAdapter {
      * @memberof CouchDbNano
      */
     removeById(_id) {
-        return this.findById(_id).then(doc => this.db.destroy(doc));
+        return Promise.resolve(
+            this.findById(_id)
+                .then(doc => {
+                    this.db.destroy(doc._id, doc._rev);
+                    return doc;
+                })
+        );
     }
 
     /**
