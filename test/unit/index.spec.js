@@ -261,6 +261,15 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call count", () => {
+        let query = {b: 20};
+        return adapter.count({query})
+            .then(res => {
+                expect(res).toBeGreaterThanOrEqual(3);
+            })
+            .catch(protectReject);
+    });
+
     it("call findByIds", () => {
         return adapter.findByIds(['2', '3', '4'])
             .then(res => {
@@ -284,18 +293,7 @@ describe("Test CouchDbNanoAdapter", () => {
 
 
 
-    //
-    // it("call findByIds", () => {
-    //     toArrayCB.mockClear();
-    //     adapter.collection.find.mockClear();
-    //
-    //     return adapter.findByIds([5, 8, 10]).catch(protectReject).then(() => {
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith({"_id": {"$in": [5, 8, 10]}});
-    //
-    //         expect(toArrayCB).toHaveBeenCalledTimes(1);
-    //     });
-    // });
+
     //
     // it("call count", () => {
     //     adapter.createCursor = jest.fn(() => Promise.resolve(8));
