@@ -1,6 +1,6 @@
-"use strict";
-const {ServiceBroker} = require("moleculer");
-const CouchDbNanoAdapter = require("../../src");
+'use strict';
+const {ServiceBroker} = require('moleculer');
+const CouchDbNanoAdapter = require('../../src');
 
 function protectReject(err) {
     if (err && err.stack) {
@@ -10,17 +10,17 @@ function protectReject(err) {
     expect(err).toBeDefined();
 }
 
-describe("Test CouchDbNanoAdapter", () => {
+describe('Test CouchDbNanoAdapter', () => {
     const broker = new ServiceBroker({logger: false});
     const service = broker.createService({
-        name: "store",
-        collection: "posts"
+        name: 'store',
+        collection: 'posts'
     });
-    const uri = "";
+    const uri = '';
     const opts = {};
     const adapter = new CouchDbNanoAdapter(uri, opts);
 
-    it("should be created", () => {
+    it('should be created', () => {
         expect(adapter).toBeDefined();
         expect(adapter.uri).toBe(uri);
         expect(adapter.opts).toBe(opts);
@@ -43,21 +43,21 @@ describe("Test CouchDbNanoAdapter", () => {
         expect(adapter.afterRetrieveTransformID).toBeInstanceOf(Function);
     });
 
-    it("throw error in init if 'collection' is not defined", () => {
+    it('throw error in init if collection is not defined', () => {
         expect(() => {
             service.schema.collection = undefined;
             adapter.init(broker, service);
-        }).toThrow("Missing `collection` definition in schema of service!");
+        }).toThrow('Missing `collection` definition in schema of service!');
     });
 
-    it("call init", () => {
-        service.schema.collection = "posts";
+    it('call init', () => {
+        service.schema.collection = 'posts';
         adapter.init(broker, service);
         expect(adapter.broker).toBe(broker);
         expect(adapter.service).toBe(service);
     });
 
-    it("call connect with default params", () => {
+    it('call connect with default params', () => {
         adapter.init(broker, service);
         return adapter.connect()
             .then(() => {
@@ -66,7 +66,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call connect with uri", () => {
+    it('call connect with uri', () => {
         adapter.init(broker, service);
         adapter.uri = 'couchdb://localhost:5984';
         return adapter.connect(uri)
@@ -76,7 +76,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call connect with uri & opts", () => {
+    it('call connect with uri & opts', () => {
         adapter.init(broker, service);
         adapter.uri = 'couchdb://localhost:5984';
         adapter.opts = {};
@@ -87,19 +87,19 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call insert", () => {
+    it('call insert', () => {
         return adapter.insert({_id: '1', a: 1, b: 2})
             .then(res => expect(res._id).toBe('1'))
             .catch(protectReject);
     });
 
-    it("call findById", () => {
+    it('call findById', () => {
         return adapter.findById('1')
             .then(res => expect(res._id).toBe('1'))
             .catch(protectReject);
     });
 
-    it("call find", () => {
+    it('call find', () => {
         return adapter.find({query: {a: 1}})
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
@@ -108,7 +108,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call findOne", () => {
+    it('call findOne', () => {
         return adapter.find({query: {a: 1}})
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
@@ -118,19 +118,19 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call updateById", () => {
+    it('call updateById', () => {
         return adapter.updateById('1', {b: 2})
             .then(res => expect(res.b).toBe(2))
             .catch(protectReject);
     });
 
-    it("call removeById", () => {
+    it('call removeById', () => {
         return adapter.removeById('1')
             .then(res => expect(res._id).toBe('1'))
             .catch(protectReject);
     });
 
-    it("call insertMany", () => {
+    it('call insertMany', () => {
         let entities = [
             {_id: '2', a: 2, b: 20},
             {_id: '3', a: 3, b: 20},
@@ -146,7 +146,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call updateMany", () => {
+    it('call updateMany', () => {
         let query = {b: 20};
         let update = {c: 100};
         return adapter.updateMany(query, update)
@@ -156,7 +156,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call count", () => {
+    it('call count', () => {
         let query = {b: 20};
         return adapter.count({query})
             .then(res => {
@@ -165,7 +165,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call findByIds", () => {
+    it('call findByIds', () => {
         return adapter.findByIds(['2', '3', '4'])
             .then(res => {
                 expect(res).toBeInstanceOf(Array);
@@ -174,7 +174,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call removeMany", () => {
+    it('call removeMany', () => {
         let query = {b: 20};
         return adapter.removeMany(query)
             .then(res => {
@@ -183,7 +183,7 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call clear", () => {
+    it('call clear', () => {
         return adapter.clear()
             .then(res => {
                 expect(res).toBeGreaterThanOrEqual(2);
@@ -191,37 +191,37 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
-    it("call beforeSaveTransformID", () => {
+    it('call beforeSaveTransformID', () => {
         const entity = {id: '123'};
         const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
         return expect(entityTransformed).toMatchObject({_id: '123'});
     });
 
-    it("should transform idField into _id", () => {
+    it('should transform idField into _id', () => {
         const entity = {id: '123'};
         const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
         return expect(entityTransformed).toMatchObject({_id: '123'});
     });
 
-    it("should NOT transform idField into _id", () => {
+    it('should NOT transform idField into _id', () => {
         const entity = {hello: '123'};
         const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
         return expect(entityTransformed).toMatchObject(entity);
     });
 
-    it("should transform _id into idField", () => {
+    it('should transform _id into idField', () => {
         const entity = {_id: '123'};
         const entityTransformed = adapter.afterRetrieveTransformID(entity, 'id');
         return expect(entityTransformed).toMatchObject({id: '123'});
     });
 
-    it("should NOT transform _id into idField", () => {
+    it('should NOT transform _id into idField', () => {
         const entity = {hello: '123'};
         const entityTransformed = adapter.afterRetrieveTransformID(entity, 'id');
         return expect(entityTransformed).toMatchObject(entity);
     });
 
-    it("call disconnect", () => {
+    it('call disconnect', () => {
         return adapter.disconnect()
             .then(() => {
                 expect(adapter.db).toBe(null);

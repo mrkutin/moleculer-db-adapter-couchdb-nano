@@ -4,10 +4,10 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
-const _ = require("lodash");
-const Promise = require("bluebird");
+const _ = require('lodash');
+const Promise = require('bluebird');
 
 class CouchDbNanoAdapter {
 
@@ -37,7 +37,7 @@ class CouchDbNanoAdapter {
         this.service = service;
 
         if (!this.service.schema.collection) {
-            throw new Error("Missing `collection` definition in schema of service!");
+            throw new Error('Missing `collection` definition in schema of service!');
         }
     }
 
@@ -286,7 +286,7 @@ class CouchDbNanoAdapter {
      */
     beforeSaveTransformID(entity, idField) {
         let newEntity = _.cloneDeep(entity);
-        if (idField !== "_id" && newEntity[idField] !== undefined) {
+        if (idField !== '_id' && newEntity[idField] !== undefined) {
             newEntity._id = newEntity[idField];
             delete newEntity[idField];
         }
@@ -301,8 +301,8 @@ class CouchDbNanoAdapter {
      * @returns {Object} Modified entity
      */
     afterRetrieveTransformID(entity, idField) {
-        if (idField !== "_id") {
-            entity[idField] = entity["_id"];
+        if (idField !== '_id') {
+            entity[idField] = entity['_id'];
             delete entity._id;
         }
         return entity;
