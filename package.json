@@ -1,7 +1,7 @@
 {
-  "name": "moleculer-db-adapter-mongo",
-  "version": "0.4.2",
-  "description": "MongoDB native adapter for Moleculer DB service.",
+  "name": "moleculer-db-adapter-couchdb-nano",
+  "version": "0.1.0",
+  "description": "CouchDB Nano adapter for Moleculer DB service.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon examples/index.js",
@@ -14,14 +14,15 @@
   },
   "keywords": [
     "microservice",
-    "moleculer"
+    "moleculer",
+    "couchdb"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:moleculerjs/moleculer-db.git"
+    "url": "git@github.com:mrkutin/moleculer-db-adapter-couchdb-nano.git"
   },
-  "homepage": "https://github.com/moleculerjs/moleculer-db/tree/master/packages/moleculer-db-adapter-mongo#readme",
-  "author": "MoleculerJS",
+  "homepage": "https://github.com/mrkutin/moleculer-db-adapter-couchdb-nano#readme",
+  "author": "Mr. Kutin",
   "license": "MIT",
   "peerDependencies": {
     "moleculer": "^0.12.0 || ^0.13.0"
@@ -49,7 +50,6 @@
     "node": ">= 6.x.x"
   },
   "dependencies": {
-    "mongodb": "3.1.8",
     "nano": "^7.1.1"
   }
 }
