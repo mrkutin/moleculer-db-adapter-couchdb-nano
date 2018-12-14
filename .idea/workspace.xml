@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25d7464d-e41e-4655-ae55-1c873892c052" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/integration/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple/index.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="21" column="68" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="68" />
+            <state relative-caret-position="354">
+              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -29,19 +31,19 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="63">
-                <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+              <first_editor relative-caret-position="344">
+                <caret line="31" column="57" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="57" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144">
-              <caret line="59" column="19" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="312">
+              <caret line="13" column="50" lean-forward="true" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -50,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="5968" column="9" selection-start-line="5968" selection-start-column="5" selection-end-line="5968" selection-end-column="9" />
+              <caret line="5968" column="9" selection-start-line="5968" selection-start-column="9" selection-end-line="5968" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -59,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -71,29 +73,19 @@
         <entry file="file://$PROJECT_DIR$/LICENSE">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="51" column="18" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="18" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,9 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mongodb</find>
-      <find>init</find>
-      <find>uri</find>
       <find>mockClear</find>
       <find>modelName</find>
       <find>schema</find>
@@ -132,11 +121,15 @@
       <find>connec</find>
       <find>conne</find>
       <find>mong</find>
+      <find>CouchAdapter</find>
+      <find>MongoAdapter</find>
+      <find>opts</find>
     </findStrings>
     <replaceStrings>
       <replace>CouchDbNano</replace>
       <replace>stringToObjectId</replace>
       <replace>objectIdToString</replace>
+      <replace>CouchDBAdapter</replace>
       <replace>'</replace>
     </replaceStrings>
   </component>
@@ -147,13 +140,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/examples/integration/index.js" />
         <option value="$PROJECT_DIR$/test/unit/index.spec.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/examples/simple/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/examples/integration/index.js" />
       </list>
     </option>
   </component>
@@ -225,7 +219,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.Test CouchDbNanoAdapter">
+  <component name="RunManager" selected="Jest.index.spec.js">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -248,20 +242,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Test CouchDbNanoAdapter.call insert" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/test/unit/index.spec.js" />
-      <test-names>
-        <test-name value="Test CouchDbNanoAdapter" />
-        <test-name value="call insert" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="Test CouchDbNanoAdapter.should NOT transform _id into idField" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -273,20 +253,6 @@
       <test-names>
         <test-name value="Test CouchDbNanoAdapter" />
         <test-name value="should NOT transform _id into idField" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Test CouchDbNanoAdapter.should NOT transform idField into _id" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/test/unit/index.spec.js" />
-      <test-names>
-        <test-name value="Test CouchDbNanoAdapter" />
-        <test-name value="should NOT transform idField into _id" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -313,21 +279,34 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
+    <configuration name="index.spec.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/test/unit/index.spec.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/examples/integration/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
-      <item itemvalue="Jest.Test CouchDbNanoAdapter.call insert" />
       <item itemvalue="Jest.Test CouchDbNanoAdapter" />
-      <item itemvalue="Jest.Test CouchDbNanoAdapter.should NOT transform idField into _id" />
       <item itemvalue="Jest.Test CouchDbNanoAdapter.should transform _id into idField" />
       <item itemvalue="Jest.Test CouchDbNanoAdapter.should NOT transform _id into idField" />
+      <item itemvalue="Node.js.index.js" />
+      <item itemvalue="Jest.index.spec.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.index.spec.js" />
+        <item itemvalue="Node.js.index.js" />
         <item itemvalue="Jest.Test CouchDbNanoAdapter" />
         <item itemvalue="Jest.Test CouchDbNanoAdapter.should NOT transform _id into idField" />
         <item itemvalue="Jest.Test CouchDbNanoAdapter.should transform _id into idField" />
-        <item itemvalue="Jest.Test CouchDbNanoAdapter.should NOT transform idField into _id" />
-        <item itemvalue="Jest.Test CouchDbNanoAdapter.call insert" />
       </list>
     </recent_temporary>
   </component>
@@ -346,9 +325,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_CouchDbNanoAdapter_should_transform__id_into_idField - 2018.12.14 at 09h 32m 32s.xml">
-      <configuration name="Test CouchDbNanoAdapter.should transform _id into idField" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="Test_CouchDbNanoAdapter_should_NOT_transform__id_into_idField - 2018.12.14 at 09h 32m 37s.xml">
       <configuration name="Test CouchDbNanoAdapter.should NOT transform _id into idField" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -376,22 +352,25 @@
     <history-entry file="Test_CouchDbNanoAdapter - 2018.12.14 at 09h 51m 56s.xml">
       <configuration name="Test CouchDbNanoAdapter" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="index_spec_js - 2018.12.14 at 11h 41m 41s.xml">
+      <configuration name="index.spec.js" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35897000" />
+    <option name="totallyTimeSpent" value="36658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31082803" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31082803" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -461,23 +440,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/simple/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/integration/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -489,7 +451,7 @@
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -499,36 +461,46 @@
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="68" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="68" />
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="5968" column="9" selection-start-line="5968" selection-start-column="5" selection-end-line="5968" selection-end-column="9" />
+          <caret line="5968" column="9" selection-start-line="5968" selection-start-column="9" selection-end-line="5968" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
+    <entry file="file://$PROJECT_DIR$/examples/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="59" column="19" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="19" />
+        <state relative-caret-position="354">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/integration/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="63">
-            <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <first_editor relative-caret-position="344">
+            <caret line="31" column="57" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="57" />
           </first_editor>
           <second_editor />
         </state>
@@ -536,11 +508,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="18" />
+        <state relative-caret-position="168">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/index.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="50" lean-forward="true" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
         </state>
       </provider>
     </entry>
