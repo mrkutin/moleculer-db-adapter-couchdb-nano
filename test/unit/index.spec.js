@@ -1,9 +1,6 @@
 "use strict";
-
 const {ServiceBroker} = require("moleculer");
-
 const CouchDbNanoAdapter = require("../../src");
-const Nano = require("nano");
 
 function protectReject(err) {
     if (err && err.stack) {
@@ -89,116 +86,6 @@ describe("Test CouchDbNanoAdapter", () => {
             })
             .catch(protectReject);
     });
-
-    // describe("Test createCursor", () => {
-    //     adapter.collection = fakeCollection;
-    //
-    //     it("init", () => {
-    //         adapter.collection.find = jest.fn(() => ({
-    //             sort: jest.fn(),
-    //             project: jest.fn(),
-    //             skip: jest.fn(),
-    //             limit: jest.fn(),
-    //             toArray: toArrayCB
-    //         }));
-    //     });
-    //
-    //     it("call without params", () => {
-    //         adapter.collection.find.mockClear();
-    //         adapter.createCursor();
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith({});
-    //     });
-    //
-    //     it("call without params & count", () => {
-    //         adapter.collection.countDocuments.mockClear();
-    //         adapter.collection.find.mockClear();
-    //
-    //         adapter.createCursor(null, true);
-    //
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(0);
-    //         expect(adapter.collection.countDocuments).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.countDocuments).toHaveBeenCalledWith({});
-    //     });
-    //
-    //     it("call with query", () => {
-    //         adapter.collection.find.mockClear();
-    //         let query = {};
-    //         adapter.createCursor({query});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith(query);
-    //     });
-    //
-    //     it("call with query & count", () => {
-    //         adapter.collection.countDocuments.mockClear();
-    //         let query = {};
-    //         adapter.createCursor({query}, true);
-    //         expect(adapter.collection.countDocuments).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.countDocuments).toHaveBeenCalledWith(query);
-    //     });
-    //
-    //     it("call with sort string", () => {
-    //         adapter.collection.find.mockClear();
-    //         let query = {};
-    //         let q = adapter.createCursor({query, sort: "-votes title"});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith(query);
-    //
-    //         expect(q.sort).toHaveBeenCalledTimes(1);
-    //         expect(q.sort).toHaveBeenCalledWith({votes: -1, title: 1});
-    //     });
-    //
-    //     it("call with sort array", () => {
-    //         adapter.collection.find.mockClear();
-    //         let query = {};
-    //         let q = adapter.createCursor({query, sort: ["createdAt", "title"]});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith(query);
-    //
-    //         expect(q.sort).toHaveBeenCalledTimes(1);
-    //         expect(q.sort).toHaveBeenCalledWith({createdAt: 1, title: 1});
-    //     });
-    //
-    //     it("call with sort object", () => {
-    //         adapter.collection.find.mockClear();
-    //         let query = {};
-    //         let q = adapter.createCursor({query, sort: {createdAt: 1, title: -1}});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith(query);
-    //
-    //         expect(q.sort).toHaveBeenCalledTimes(1);
-    //         expect(q.sort).toHaveBeenCalledWith({createdAt: 1, title: -1});
-    //     });
-    //
-    //     it("call with limit & offset", () => {
-    //         adapter.collection.find.mockClear();
-    //         let q = adapter.createCursor({limit: 5, offset: 10});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith(undefined);
-    //
-    //         expect(q.limit).toHaveBeenCalledTimes(1);
-    //         expect(q.limit).toHaveBeenCalledWith(5);
-    //         expect(q.skip).toHaveBeenCalledTimes(1);
-    //         expect(q.skip).toHaveBeenCalledWith(10);
-    //     });
-    //
-    //     it("call with full-text search", () => {
-    //         adapter.collection.find.mockClear();
-    //         let q = adapter.createCursor({search: "walter"});
-    //         expect(adapter.collection.find).toHaveBeenCalledTimes(2);
-    //         expect(adapter.collection.find).toHaveBeenCalledWith({
-    //             "$text": {"$search": "walter"}
-    //         });
-    //         expect(q.project).toHaveBeenCalledTimes(1);
-    //         expect(q.project).toHaveBeenCalledWith({
-    //             "_score": {"$meta": "textScore"}
-    //         });
-    //
-    //         expect(q.sort).toHaveBeenCalledTimes(1);
-    //         expect(q.sort).toHaveBeenCalledWith({"_score": {"$meta": "textScore"}});
-    //     });
-    //
-    // });
 
     it("call insert", () => {
         return adapter.insert({_id: '1', a: 1, b: 2})
@@ -304,91 +191,36 @@ describe("Test CouchDbNanoAdapter", () => {
             .catch(protectReject);
     });
 
+    it("call beforeSaveTransformID", () => {
+        const entity = {id: '123'};
+        const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
+        return expect(entityTransformed).toMatchObject({_id: '123'});
+    });
 
+    it("should transform idField into _id", () => {
+        const entity = {id: '123'};
+        const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
+        return expect(entityTransformed).toMatchObject({_id: '123'});
+    });
 
+    it("should NOT transform idField into _id", () => {
+        const entity = {hello: '123'};
+        const entityTransformed = adapter.beforeSaveTransformID(entity, 'id');
+        return expect(entityTransformed).toMatchObject(entity);
+    });
 
+    it("should transform _id into idField", () => {
+        const entity = {_id: '123'};
+        const entityTransformed = adapter.afterRetrieveTransformID(entity, 'id');
+        return expect(entityTransformed).toMatchObject({id: '123'});
+    });
 
+    it("should NOT transform _id into idField", () => {
+        const entity = {hello: '123'};
+        const entityTransformed = adapter.afterRetrieveTransformID(entity, 'id');
+        return expect(entityTransformed).toMatchObject(entity);
+    });
 
-
-
-
-
-
-    //
-    // it("call clear", () => {
-    //     adapter.collection.deleteMany.mockClear();
-    //     return adapter.clear().catch(protectReject).then(() => {
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledTimes(1);
-    //         expect(adapter.collection.deleteMany).toHaveBeenCalledWith({});
-    //     });
-    // });
-    //
-    // it("call entityToObject", () => {
-    //     adapter.objectIdToString = jest.fn();
-    //     doc._id = null;
-    //     adapter.entityToObject(doc);
-    //     expect(adapter.objectIdToString).toHaveBeenCalledTimes(0);
-    //
-    //     doc._id = 1;
-    //     adapter.entityToObject(doc);
-    //     expect(adapter.objectIdToString).toHaveBeenCalledTimes(1);
-    // });
-    //
-    // it("should transform idField into _id", () => {
-    //     adapter.stringToObjectId = jest.fn(entry => entry);
-    //
-    //     let entry = {
-    //         myID: "123456789",
-    //         title: "My first post"
-    //     };
-    //     let idField = "myID";
-    //
-    //     let res = adapter.beforeSaveTransformID(entry, idField);
-    //
-    //     expect(res.myID).toEqual(undefined);
-    //     expect(res._id).toEqual(entry.myID);
-    // });
-    //
-    // it("should NOT transform idField into _id", () => {
-    //     // MongoDB will generate the _id
-    //     let entry = {
-    //         title: "My first post"
-    //     };
-    //     let idField = "myID";
-    //
-    //     let res = adapter.beforeSaveTransformID(entry, idField);
-    //
-    //     expect(res.myID).toEqual(undefined);
-    //     expect(res._id).toEqual(undefined);
-    // });
-    //
-    // it("should transform _id into idField", () => {
-    //     adapter.objectIdToString = jest.fn(entry => entry);
-    //
-    //     let entry = {
-    //         _id: "123456789",
-    //         title: "My first post"
-    //     };
-    //     let idField = "myID";
-    //
-    //     let res = adapter.afterRetrieveTransformID(entry, idField);
-    //
-    //     expect(res.myID).toEqual(entry.myID);
-    //     expect(res._id).toEqual(undefined);
-    // });
-    //
-    // it("should NOT transform _id into idField", () => {
-    //     let entry = {
-    //         _id: "123456789",
-    //         title: "My first post"
-    //     };
-    //     let idField = "_id";
-    //
-    //     let res = adapter.afterRetrieveTransformID(entry, idField);
-    //
-    //     expect(res.myID).toEqual(undefined);
-    //     expect(res._id).toEqual(entry._id);
-    // });
     it("call disconnect", () => {
         return adapter.disconnect()
             .then(() => {

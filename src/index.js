@@ -1,6 +1,6 @@
 /*
  * moleculer-db-adapter-couchdb-nano
- * Copyright (c) 2018 Mr. Kutin (https://github.com/moleculerjs/moleculer-db)
+ * Copyright (c) 2018 Mr. Kutin (https://github.com/mrkutin/moleculer-db-adapter-couchdb-nano)
  * MIT Licensed
  */
 
@@ -37,7 +37,6 @@ class CouchDbNanoAdapter {
         this.service = service;
 
         if (!this.service.schema.collection) {
-            /* istanbul ignore next */
             throw new Error("Missing `collection` definition in schema of service!");
         }
     }
@@ -180,7 +179,7 @@ class CouchDbNanoAdapter {
      * @param {Array} entities
      * @returns {Promise<Array<Object>>} Return with the inserted documents in an Array.
      *
-     * @memberof MongoDbAdapter
+     * @memberof CouchDbNano
      */
     insertMany(entities) {
         return Promise.resolve(
@@ -212,7 +211,7 @@ class CouchDbNanoAdapter {
      * @param {Object} query
      * @returns {Promise<Number>} Return with the count of deleted documents.
      *
-     * @memberof MongoDbAdapter
+     * @memberof CouchDbNano
      */
     removeMany(query) {
         return this.find({query})
@@ -255,17 +254,6 @@ class CouchDbNanoAdapter {
             .then(result => this.findById(result.id));
     }
 
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Clear all entities from collection
      *
@@ -277,94 +265,18 @@ class CouchDbNanoAdapter {
         return this.removeMany({});
     }
 
-    // /**
-    //  * Create a filtered cursor.
-    //  *
-    //  * Available filters in `params`:
-    //  *  - search
-    //  *    - sort
-    //  *    - limit
-    //  *    - offset
-    //  *  - query
-    //  *
-    //  * @param {Object} params
-    //  * @param {Boolean} isCounting
-    //  * @returns {MongoCursor}
-    //  */
-    // createCursor(params, isCounting) {
-    //     if (params) {
-    //         let q;
-    //         if (isCounting)
-    //             q = this.collection.countDocuments(params.query);
-    //         else
-    //             q = this.collection.find(params.query);
-    //         // Full-text search
-    //         // More info: https://docs.mongodb.com/manual/reference/operator/query/text/
-    //         if (_.isString(params.search) && params.search !== "") {
-    //             q = this.collection.find(Object.assign(params.query || {}, {
-    //                 $text: {
-    //                     $search: params.search
-    //                 }
-    //             }));
-    //             q.project({_score: {$meta: "textScore"}});
-    //             q.sort({
-    //                 _score: {
-    //                     $meta: "textScore"
-    //                 }
-    //             });
-    //         } else {
-    //             // Sort
-    //             if (params.sort && q.sort) {
-    //                 let sort = this.transformSort(params.sort);
-    //                 if (sort)
-    //                     q.sort(sort);
-    //             }
-    //         }
-    //
-    //         // Offset
-    //         if (_.isNumber(params.offset) && params.offset > 0)
-    //             q.skip(params.offset);
-    //
-    //         // Limit
-    //         if (_.isNumber(params.limit) && params.limit > 0)
-    //             q.limit(params.limit);
-    //
-    //         return q;
-    //     }
-    //
-    //     // If not params
-    //     if (isCounting)
-    //         return this.collection.countDocuments({});
-    //     else
-    //         return this.collection.find({});
-    // }
-    //
-    // /**
-    //  * Convert the `sort` param to a `sort` object to Mongo queries.
-    //  *
-    //  * @param {String|Array<String>|Object} paramSort
-    //  * @returns {Object} Return with a sort object like `{ "votes": 1, "title": -1 }`
-    //  * @memberof CouchDbNano
-    //  */
-    // transformSort(paramSort) {
-    //     let sort = paramSort;
-    //     if (_.isString(sort))
-    //         sort = sort.replace(/,/, " ").split(" ");
-    //
-    //     if (Array.isArray(sort)) {
-    //         let sortObj = {};
-    //         sort.forEach(s => {
-    //             if (s.startsWith("-"))
-    //                 sortObj[s.slice(1)] = -1;
-    //             else
-    //                 sortObj[s] = 1;
-    //         });
-    //         return sortObj;
-    //     }
-    //
-    //     return sort;
-    // }
-    //
+    /**
+     * Convert DB entity to JSON object. It converts the `_id` to hexadecimal `String`.
+     *
+     * @param {Object} entity
+     * @returns {Object}
+     * @memberof CouchDbNano
+     */
+    entityToObject(entity) {
+        let json = _.cloneDeep(entity);
+        return json;
+    }
+
     /**
      * Transforms 'idField' into CouchDB's '_id'
      * @param {Object} entity
@@ -382,7 +294,7 @@ class CouchDbNanoAdapter {
     }
 
     /**
-     * Transforms MongoDB's '_id' into user defined 'idField'
+     * Transforms '_id' into user defined 'idField'
      * @param {Object} entity
      * @param {String} idField
      * @memberof CouchDbNano
