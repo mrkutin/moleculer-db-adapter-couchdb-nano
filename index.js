@@ -1,9 +1,7 @@
 /*
- * moleculer-db-adapter-mongo
- * Copyright (c) 2017 MoleculerJS (https://github.com/moleculerjs/moleculer-db)
+ * moleculer-db-adapter-couchdb-nano
+ * Copyright (c) 2018 Mr. Kutin (https://github.com/mrkutin/moleculer-db-adapter-couchdb-nano)
  * MIT Licensed
  */
-
 "use strict";
-
 module.exports = require("./src");
